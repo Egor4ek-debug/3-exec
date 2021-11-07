@@ -56,25 +56,19 @@ let k=0;
 
 //4 задание
 
-var columns = 6;
-var rows    = 6;
+var elem = document.querySelector('#elem');
+createTable(elem,4,4);
+function createTable(parent, cols, rows){
+    var table = document.createElement('table');
 
-var table = document.createElement('table');
-var tbody = document.createElement('tbody');
+    for(var i = 0; i< rows; i++){
+        var tr = document.createElement('tr');
+        for(var j = 0; j< cols; j++){
+            var td = document.createElement('td');
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+    }
 
-for (var i = 0; i < rows; i++){
-  var row = document.createElement('tr');
-
-  for (var j = 0; j < columns; j++){
-    var column = document.createElement('td');
-    var text = document.createTextNode('text');
-    column.appendChild(text);
-    row.appendChild(column);
-  }
-
-  tbody.appendChild(row);
+    parent.appendChild(table);
 }
-
-table.appendChild(tbody);
-
-document.body.appendChild(table);
